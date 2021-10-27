@@ -1,31 +1,33 @@
 import React, { useEffect, useState } from 'react';
 
-const APIData = () => {
+const DataAPI = () => {
 
     const [data, setData] = useState([]);
 
-    const getCovidData = async () => {
-        const res = await fetch('https://jsonplaceholder.typicode.com/photos');
+    const getUserData = async () => {
+        const res = await fetch('https://my-json-server.typicode.com/animeshroydev/SampleJSONPlaceholder/db');
         const actualData = await res.json();
-        console.log(actualData.albumID=1);
-        setData(actualData.albumID=1);
+        console.log(actualData.contacts);
+        setData(actualData.contacts);
     }
 
     useEffect(() => {
-        getAlbumID();
+        getUserData();
     }, []);
+
     return (
 
         <div>
-
-            <h1>Images</h1>
+            <div className="table">
+            <h1>Data Analysis</h1>
 
             <table>
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Title</th>
-                        <th>Url</th>
+                        <th>Name</th>
+                        <th>Country</th>
+                        <th>Phone</th>
                     </tr> 
                 </thead>
                 <tbody>
@@ -34,18 +36,19 @@ const APIData = () => {
                             return (
                                 <tr>
                                     <td>{curElem.id}</td>
-                                    <td>{curElem.title}</td>
-                                    <td>{curElem.url}</td>
-                                </tr>
+                                    <td>{curElem.name}</td>
+                                    <td>{curElem.country}</td>
+                                    <td>{curElem.phone}</td>
+                                 </tr>   
                             );
                         })
                     }
                 </tbody>
             </table>
-
+            </div>
         </div>
     );
 
 }
 
-export default APIData;
+export default DataAPI;

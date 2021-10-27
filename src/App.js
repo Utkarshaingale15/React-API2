@@ -1,11 +1,12 @@
 
 import './App.css';
-import APIData from './APIData';
+
+import DataAPI from './DataAPI';
 
 function App() {
   return (
     <div>
-      <APIData/>
+    <DataAPI />
 
     </div>
   );
